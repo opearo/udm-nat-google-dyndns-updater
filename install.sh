@@ -46,7 +46,8 @@ read -sp '-> Enter Google Dynamic DNS generated password: ' passvar
 
 echo
 
-cron_schedule="*/42 */1 * * *"
+random_minute=$((${RANDOM} % 60))
+cron_schedule="*/${random_minute} */1 * * *"
 crontab_file="${DATA_DIR}/cronjobs/419-google-dns-updater"
 
 # create crontab file
